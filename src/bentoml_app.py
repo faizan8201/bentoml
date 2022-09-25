@@ -25,7 +25,7 @@ class Customer(BaseModel):
 
 # RUn the service on local 
 @service.api(input=JSON(pydantic_model=Customer), output=NumpyNdarray())
-def predict(data: Customer) -> np.array:
+def predict(data: JSON) -> np.array:
 
     df = pd.DataFrame(data.dict(), index=[0])
     
